@@ -1,4 +1,4 @@
-package br.com.carloslonghi.eventflow.api.core.entities;
+package br.com.carloslonghi.eventflow.api.core.domain;
 
 import br.com.carloslonghi.eventflow.api.core.enums.EventType;
 

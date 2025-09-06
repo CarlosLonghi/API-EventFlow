@@ -1,6 +1,6 @@
 package br.com.carloslonghi.eventflow.api.infra.gateway;
 
-import br.com.carloslonghi.eventflow.api.core.entities.Event;
+import br.com.carloslonghi.eventflow.api.core.domain.Event;
 import br.com.carloslonghi.eventflow.api.core.gateway.EventGateway;
 import br.com.carloslonghi.eventflow.api.infra.mapper.EventEntityMapper;
 import br.com.carloslonghi.eventflow.api.infra.persistence.EventEntity;

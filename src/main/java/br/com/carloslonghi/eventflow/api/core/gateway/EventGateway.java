@@ -1,6 +1,6 @@
 package br.com.carloslonghi.eventflow.api.core.gateway;
 
-import br.com.carloslonghi.eventflow.api.core.entities.Event;
+import br.com.carloslonghi.eventflow.api.core.domain.Event;
 
 public interface EventGateway {
 
