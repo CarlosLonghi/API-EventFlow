@@ -4,7 +4,7 @@ import br.com.carloslonghi.eventflow.api.core.domain.Event;
 import br.com.carloslonghi.eventflow.api.infra.dtos.EventDto;
 import org.mapstruct.Mapper;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface EventDtoMapper {
 
     EventDto toDto(Event domain);
