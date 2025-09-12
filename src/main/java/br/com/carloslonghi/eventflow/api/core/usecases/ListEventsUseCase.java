@@ -1,10 +1,9 @@
 package br.com.carloslonghi.eventflow.api.core.usecases;
 
 import br.com.carloslonghi.eventflow.api.core.domain.Event;
-
-import java.util.List;
+import br.com.carloslonghi.eventflow.api.core.shared.PageResult;
 
 public interface ListEventsUseCase {
 
-    List<Event> execute();
+    PageResult<Event> execute(int pageNumber, int pageSize);
 }

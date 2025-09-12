@@ -2,14 +2,14 @@ package br.com.carloslonghi.eventflow.api.infra.gateway;
 
 import br.com.carloslonghi.eventflow.api.core.domain.Event;
 import br.com.carloslonghi.eventflow.api.core.gateway.EventGateway;
+import br.com.carloslonghi.eventflow.api.core.shared.PageResult;
 import br.com.carloslonghi.eventflow.api.infra.mapper.EventEntityMapper;
 import br.com.carloslonghi.eventflow.api.infra.persistence.EventEntity;
 import br.com.carloslonghi.eventflow.api.infra.persistence.EventRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
@@ -28,9 +28,16 @@ public class EventRepositoryGateway implements EventGateway {
     }
 
     @Override
-    public List<Event> listEvents() {
-        return eventRepository.findAll().stream()
-                .map(eventEntityMapper::toDomain)
-                .collect(Collectors.toList());
+    public PageResult<Event> listEvents(int pageNumber, int pageSize) {
+        PageRequest pageable = PageRequest.of(pageNumber, pageSize);
+        Page<EventEntity> result = eventRepository.findAll(pageable);
+
+        return new PageResult<>(
+                result.stream().map(eventEntityMapper::toDomain).toList(),
+                result.getNumber(),
+                result.getSize(),
+                result.getTotalElements(),
+                result.getTotalPages()
+        );
     }
 }
