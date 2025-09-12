@@ -1,0 +1,20 @@
+package br.com.carloslonghi.eventflow.api.core.usecases;
+
+import br.com.carloslonghi.eventflow.api.core.domain.Event;
+import br.com.carloslonghi.eventflow.api.core.gateway.EventGateway;
+
+import java.util.List;
+
+public class ListEventsUseCaseImpl implements ListEventsUseCase {
+
+    private final EventGateway eventGateway;
+
+    public ListEventsUseCaseImpl(EventGateway eventGateway) {
+        this.eventGateway = eventGateway;
+    }
+
+    @Override
+    public List<Event> execute() {
+        return eventGateway.listEvents();
+    }
+}
