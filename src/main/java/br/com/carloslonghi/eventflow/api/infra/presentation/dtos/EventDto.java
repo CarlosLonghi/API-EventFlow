@@ -1,4 +1,4 @@
-package br.com.carloslonghi.eventflow.api.infra.dtos;
+package br.com.carloslonghi.eventflow.api.infra.presentation.dtos;
 
 import br.com.carloslonghi.eventflow.api.core.enums.EventType;
 
