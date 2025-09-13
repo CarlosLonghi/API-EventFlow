@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class EventRepositoryGateway implements EventGateway {
+public class EventGatewayImpl implements EventGateway {
 
     private final EventRepository eventRepository;
     private final EventEntityMapper eventEntityMapper;
