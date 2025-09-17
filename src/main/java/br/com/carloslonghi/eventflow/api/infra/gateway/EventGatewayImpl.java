@@ -40,4 +40,9 @@ public class EventGatewayImpl implements EventGateway {
                 result.getTotalPages()
         );
     }
+
+    @Override
+    public boolean existsByIdentifier(String identifier) {
+        return eventRepository.existsByIdentifier(identifier);
+    }
 }

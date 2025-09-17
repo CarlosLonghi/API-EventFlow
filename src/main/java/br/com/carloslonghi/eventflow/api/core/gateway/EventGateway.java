@@ -8,4 +8,6 @@ public interface EventGateway {
     Event createEvent(Event event);
 
     PageResult<Event> listEvents(int pageNumber, int pageSize);
+
+    boolean existsByIdentifier(String identifier);
 }
