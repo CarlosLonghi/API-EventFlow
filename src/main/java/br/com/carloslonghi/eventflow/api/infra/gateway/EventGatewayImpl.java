@@ -11,6 +11,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 @RequiredArgsConstructor
 public class EventGatewayImpl implements EventGateway {
@@ -44,5 +46,10 @@ public class EventGatewayImpl implements EventGateway {
     @Override
     public boolean existsByIdentifier(String identifier) {
         return eventRepository.existsByIdentifier(identifier);
+    }
+
+    @Override
+    public Optional<Event> findByIdentifier(String identifier) {
+        return eventRepository.findByIdentifier(identifier);
     }
 }
