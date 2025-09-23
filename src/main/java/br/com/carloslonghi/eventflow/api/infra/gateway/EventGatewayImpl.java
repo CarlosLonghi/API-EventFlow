@@ -11,6 +11,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 @RequiredArgsConstructor
 public class EventGatewayImpl implements EventGateway {
@@ -19,8 +21,9 @@ public class EventGatewayImpl implements EventGateway {
     private final EventEntityMapper eventEntityMapper;
 
     @Override
-    public Event createEvent(Event event) {
+    public Event createEvent(Event event, String identifier) {
         EventEntity eventEntity = eventEntityMapper.toEntity(event);
+        eventEntity.setIdentifier(identifier);
 
         EventEntity eventSaved = eventRepository.save(eventEntity);
 
@@ -39,5 +42,15 @@ public class EventGatewayImpl implements EventGateway {
                 result.getTotalElements(),
                 result.getTotalPages()
         );
+    }
+
+    @Override
+    public boolean existsByIdentifier(String identifier) {
+        return eventRepository.existsByIdentifier(identifier);
+    }
+
+    @Override
+    public Optional<Event> findByIdentifier(String identifier) {
+        return eventRepository.findByIdentifier(identifier);
     }
 }
