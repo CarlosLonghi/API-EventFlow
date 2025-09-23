@@ -21,8 +21,9 @@ public class EventGatewayImpl implements EventGateway {
     private final EventEntityMapper eventEntityMapper;
 
     @Override
-    public Event createEvent(Event event) {
+    public Event createEvent(Event event, String identifier) {
         EventEntity eventEntity = eventEntityMapper.toEntity(event);
+        eventEntity.setIdentifier(identifier);
 
         EventEntity eventSaved = eventRepository.save(eventEntity);
 

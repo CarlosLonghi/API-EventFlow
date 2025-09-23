@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface EventGateway {
 
-    Event createEvent(Event event);
+    Event createEvent(Event event, String identifier);
 
     PageResult<Event> listEvents(int pageNumber, int pageSize);
 
